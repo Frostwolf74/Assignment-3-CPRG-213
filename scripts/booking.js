@@ -3,7 +3,7 @@
 // Do any of these variables need to be initialized when the page is loaded? 
 // When do they need to be reset or updated?
 
-let costDaily = 0;
+let costDaily = 35; // default is full 
 let cost = 0;
 let dayCounter = [];
 

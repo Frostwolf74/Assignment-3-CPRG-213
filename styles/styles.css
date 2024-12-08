@@ -181,7 +181,6 @@ footer{
 .booking-page{
     width: 600px;
     justify-self: center;
-    text-size-adjust: 18px; /* prob doesnt work */
 }
 
 .booking-page>p, .booking-page>h2{

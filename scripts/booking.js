@@ -15,12 +15,11 @@ let buttons = [document.getElementById("monday"), document.getElementById("tuesd
 
 function changeColor(button){
     buttons[button].classList.add('clicked');
-    dayCounter.push(buttons[button])
-    recalculate();
+    dayCounter.push(buttons[button]);
 }
 
 for(let i = 0; i < 5; ++i){
-    buttons[i].addEventListener("click", function(){changeColor(i)}); // add an event lister for each button and when it is pressed it will send its array index to the changeColor function
+    buttons[i].addEventListener("click", function(){changeColor(i);recalculate();}); // add an event lister for each button and when it is pressed it will send its array index to the changeColor function
 }
 
 /********* clear days *********/
@@ -37,10 +36,9 @@ function resetAll(){
 
     cost = 0;
     dayCounter = [];
-    recalculate();
 }
 
-clearButton.addEventListener("click", function(){resetAll()});
+clearButton.addEventListener("click", function(){resetAll();recalculate();});
 
 
 /********* change rate *********/
@@ -53,10 +51,9 @@ function halfClicked(){
     costDaily = 20;
     halfDay.classList.add('clicked');
     fullDay.classList.remove('clicked');
-    recalculate();
 }
 
-halfDay.addEventListener("click", function(){halfClicked()})
+halfDay.addEventListener("click", function(){halfClicked();recalculate();});
 
 // when the full-day button is clicked, the daily rate is set back to $35, the clicked class is added to "full" and removed from "half", and the total cost is recalculated.
 
@@ -64,10 +61,9 @@ function fullClicked(){
     costDaily = 35;
     halfDay.classList.remove('clicked');
     fullDay.classList.add('clicked');
-    recalculate();
 }
 
-fullDay.addEventListener("click", function(){fullClicked()})
+fullDay.addEventListener("click", function(){fullClicked();recalculate();});
 
 /********* calculate *********/
 // when a calculation is needed, set the innerHTML of the calculated-cost element to the appropriate value
@@ -75,6 +71,6 @@ fullDay.addEventListener("click", function(){fullClicked()})
 function recalculate(){
     cost = costDaily * dayCounter.length;
 
-    document.getElementById("calculated-cost").innerHTML = cost
+    document.getElementById("calculated-cost").innerHTML = cost;
 }
 
